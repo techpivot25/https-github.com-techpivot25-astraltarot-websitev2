@@ -1,0 +1,8 @@
+{
+  "name": "Astral Tarot 24",
+  "description": "Unlock Your Spiritual Potential with accurate online tarot readings, 24/7 psychic guidance, celestial horoscopes, and certified reader consultations at Astral Tarot 24.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

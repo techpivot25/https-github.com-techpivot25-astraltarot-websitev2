@@ -1,0 +1,637 @@
+@import "tailwindcss";
+
+@theme {
+  --font-cinzel: 'Cinzel', serif;
+  --font-cinzel-decorative: 'Cinzel Decorative', serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  
+  --color-astral-deep: #06070d;
+  --color-astral-dark: #0b0d18;
+  --color-astral-card: #121526;
+  --color-astral-accent: #1e2340;
+  --color-gold-light: #fff5d0;
+  --color-gold-main: #ffd700;
+  --color-gold-dark: #b38827;
+  --color-cosmic-purple: #7c3aed;
+}
+
+@layer base {
+  body {
+    background-color: #07080f;
+    color: #e2e4f0;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.015em;
+  }
+}
+
+/* Universal Smooth Transitions for Theme Switching */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Preserving 3D card flips */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Shimmer & Glow Effects */
+.gold-text-gradient {
+  background: linear-gradient(135deg, #fff5d0 0%, #ffd700 40%, #eab308 70%, #b38827 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border-gradient {
+  border-image: linear-gradient(to bottom right, #ffd700, #b38827, #1e2340) 1;
+}
+
+.cosmic-glow {
+  box-shadow: 0 0 45px -5px rgba(212, 175, 55, 0.18);
+}
+
+.card-celestial-shadow {
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.6), 0 0 25px 0 rgba(212, 175, 55, 0.15);
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 0.9; transform: scale(1.1); }
+}
+
+.animate-twinkle {
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+.animate-twinkle-delay-1 {
+  animation: twinkle 5s ease-in-out infinite 1s;
+}
+
+.animate-twinkle-delay-2 {
+  animation: twinkle 6s ease-in-out infinite 2s;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #080912;
+}
+::-webkit-scrollbar-thumb {
+  background: #232747;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #434a7d;
+}
+
+/* ==========================================================================
+   LIGHT MODE: HIGH-CONTRAST ALABASTER & SACRED PARCHMENT THEME
+   Ensures zero text merging and crystal-clear readability across all pages
+   ========================================================================== */
+
+/* 1. Canvas & Layout Background */
+html.light,
+html.light body,
+html.light #root,
+html.light main,
+html.light .site-wrapper,
+html.light section {
+  background-color: #f7f4ec !important;
+  background-image: none !important;
+  color: #0e1322 !important;
+}
+
+/* 2. ALL Dark Background Gradients become Warm Light Alabaster Cards/Banners */
+html.light [class*="bg-gradient-to-"]:not([class*="from-[#c59b27]"]):not([class*="from-[#b38827]"]):not([class*="from-[#997316]"]):not([class*="from-amber-400"]):not([id^="tarot-card-"] *):not([class*="from-[#1e2552]"]):not(.zodiac-btn-active):not(.zodiac-btn-active *):not(.zodiac-main-emblem):not(.zodiac-main-emblem *) {
+  background-image: linear-gradient(180deg, #ffffff 0%, #f7f3ea 100%) !important;
+  background-color: #ffffff !important;
+  border-color: #ded3bf !important;
+}
+
+/* 3. ALL Dark Hex Backgrounds become Crisp White with Soft Warm Borders */
+html.light [class*="bg-[#"]:not([class*="from-[#c59b27]"]):not([class*="from-[#b38827]"]):not([class*="from-[#997316]"]):not([class*="from-amber-400"]):not([class*="bg-[#ffd700]"]):not([class*="bg-[#d4af37]"]):not(.site-wrapper):not([id^="tarot-card-"]):not([id^="tarot-card-"] *):not(.zodiac-btn-active):not(.zodiac-symbol-badge):not(.zodiac-main-emblem):not(.zodiac-main-emblem *) {
+  background-color: #ffffff !important;
+  border-color: #ded3bf !important;
+}
+
+/* 4. Secondary Inner Containers, Tags, Sub-Cards & Pills */
+html.light [class*="bg-[#0b0d1e]"],
+html.light [class*="bg-[#0b0e22]"],
+html.light [class*="bg-[#0d122b]"],
+html.light [class*="bg-[#111530]"],
+html.light [class*="bg-[#111532]"],
+html.light [class*="bg-[#141833]"],
+html.light [class*="bg-[#141938]"],
+html.light [class*="bg-[#161a36]"],
+html.light [class*="bg-[#171b38]"],
+html.light [class*="bg-[#181d3d]"],
+html.light [class*="bg-[#1a1e3b]"],
+html.light [class*="bg-[#1b1f3d]"],
+html.light [class*="bg-[#1b1f3b]"],
+html.light [class*="bg-[#1b2040]"],
+html.light [class*="bg-[#1b2042]"],
+html.light [class*="bg-[#1c2140]"],
+html.light [class*="bg-[#1d244f]"],
+html.light [class*="bg-[#1e2348]"],
+html.light [class*="bg-[#1e244d]"],
+html.light [class*="bg-[#202752]"],
+html.light [class*="bg-[#202754]"],
+html.light [class*="bg-[#222954]"],
+html.light [class*="bg-[#252a52]"],
+html.light [class*="bg-[#252a54]"],
+html.light [class*="bg-[#2b356a]"] {
+  background-color: #f2ebdf !important;
+  border-color: #dcd0bc !important;
+}
+
+/* 5. Card Elevation & Soft Ambient Shadows */
+html.light .rounded-2xl,
+html.light .rounded-3xl {
+  box-shadow: 0 4px 20px -2px rgba(180, 140, 60, 0.08), 0 1px 4px -1px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* 6. Universal High-Contrast Borders */
+html.light [class*="border-[#232747]"],
+html.light [class*="border-[#1b203d]"],
+html.light [class*="border-[#1b2146]"],
+html.light [class*="border-[#1c2140]"],
+html.light [class*="border-[#1d2245]"],
+html.light [class*="border-[#1f244a]"],
+html.light [class*="border-[#232850]"],
+html.light [class*="border-[#24294a]"],
+html.light [class*="border-[#242b58]"],
+html.light [class*="border-[#262c54]"],
+html.light [class*="border-[#262c57]"],
+html.light [class*="border-[#262e5a]"],
+html.light [class*="border-[#262e5b]"],
+html.light [class*="border-[#2b3360]"],
+html.light [class*="border-[#2b3464]"],
+html.light [class*="border-[#2d3563]"],
+html.light [class*="border-[#2d3668]"],
+html.light [class*="border-[#2e3663]"],
+html.light [class*="border-[#2e3767]"],
+html.light [class*="border-[#2e376a]"],
+html.light [class*="border-[#2f3769]"],
+html.light [class*="border-[#3b4379]"],
+html.light [class*="border-[#3b4782]"] {
+  border-color: #ded3bf !important;
+}
+
+html.light [class*="border-[#d4af37]"] {
+  border-color: rgba(180, 120, 20, 0.45) !important;
+}
+
+html.light [class*="border-[#ffd700]"] {
+  border-color: rgba(180, 120, 20, 0.55) !important;
+}
+
+/* ==========================================================================
+   PRIMARY RADIANT GOLD CTA BUTTONS
+   Gold gradient & dark text maintained in both modes
+   ========================================================================== */
+html.light button[class*="from-[#c59b27]"],
+html.light button[class*="from-[#b38827]"],
+html.light button[class*="from-[#997316]"],
+html.light a[class*="from-[#c59b27]"],
+html.light a[class*="from-[#b38827]"],
+html.light a[class*="from-[#997316]"],
+html.light div[class*="from-[#c59b27]"],
+html.light button[class*="from-amber-400"],
+html.light div[class*="from-amber-400"] {
+  background-image: linear-gradient(to right, #b38827 0%, #eab308 50%, #dfb743 100%) !important;
+  background-color: #eab308 !important;
+  color: #07080f !important;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35) !important;
+}
+
+html.light button[class*="from-[#c59b27]"] *,
+html.light button[class*="from-[#b38827]"] *,
+html.light button[class*="from-[#997316]"] *,
+html.light a[class*="from-[#c59b27]"] *,
+html.light a[class*="from-[#b38827]"] *,
+html.light button[class*="from-amber-400"] * {
+  color: #07080f !important;
+}
+
+/* Gold badges in Light Mode */
+html.light [class*="bg-[#ffd700]"]:not([id^="tarot-card-"] *) {
+  background-color: #f59e0b !important;
+  color: #07080f !important;
+}
+html.light [class*="bg-[#d4af37]"]:not([id^="tarot-card-"] *) {
+  background-color: #d97706 !important;
+  color: #07080f !important;
+}
+
+/* ==========================================================================
+   HOVER STATES FIX: ZERO-MERGE GUARANTEE ON HOVER IN LIGHT MODE
+   Ensures text never turns white on hover over light backgrounds,
+   and backgrounds never turn dark navy on hover in light mode.
+   ========================================================================== */
+html.light [class*="hover:text-white"]:hover:not([class*="from-[#c59b27]"] *):not([class*="from-[#b38827]"] *):not([class*="from-amber-400"] *),
+html.light [class*="group-hover:text-white"],
+html.light [class*="hover:text-[#fff5d0]"]:hover,
+html.light [class*="hover:text-[#fff]"]:hover {
+  color: #0e1322 !important;
+}
+
+html.light [class*="hover:text-[#ffd700]"]:hover:not([class*="from-[#c59b27]"] *),
+html.light [class*="hover:text-[#fef08a]"]:hover:not([class*="from-[#c59b27]"] *) {
+  color: #854d0e !important;
+}
+
+html.light [class*="hover:bg-[#"]:hover:not([class*="from-[#c59b27]"]):not([class*="from-[#b38827]"]),
+html.light [class*="hover:bg-[#1"]:hover,
+html.light [class*="hover:bg-[#2"]:hover,
+html.light [class*="hover:bg-[#0"]:hover {
+  background-color: #ede5d5 !important;
+  border-color: #b45309 !important;
+}
+
+html.light [class*="hover:border-[#ffd700]"]:hover,
+html.light [class*="hover:border-[#d4af37]"]:hover {
+  border-color: #b45309 !important;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY & READABILITY: ZERO-MERGE GUARANTEE IN LIGHT MODE
+   High-contrast ink for headers, readable dark slate for body copy
+   ========================================================================== */
+html.light h1:not([id^="tarot-card-"] *),
+html.light h2:not([id^="tarot-card-"] *),
+html.light h3:not([id^="tarot-card-"] *),
+html.light h4:not([id^="tarot-card-"] *),
+html.light h5:not([id^="tarot-card-"] *),
+html.light h6:not([id^="tarot-card-"] *) {
+  color: #0e1322 !important;
+}
+
+html.light .text-white:not([class*="from-[#c59b27]"] *):not([class*="from-[#b38827]"] *):not([class*="from-[#997316]"] *):not([class*="from-amber-400"] *):not([id^="tarot-card-"] *),
+html.light [class*="text-white"]:not([class*="from-[#c59b27]"] *):not([class*="from-[#b38827]"] *):not([class*="from-[#997316]"] *):not([class*="from-amber-400"] *):not([id^="tarot-card-"] *),
+html.light [class*="text-[#fff5d0]"]:not([id^="tarot-card-"] *),
+html.light [class*="text-[#fff]"]:not([id^="tarot-card-"] *) {
+  color: #0e1322 !important;
+}
+
+html.light p:not([id^="tarot-card-"] *),
+html.light [class*="text-[#cbd5e1]"]:not([id^="tarot-card-"] *),
+html.light [class*="text-[#e2e4f0]"]:not([id^="tarot-card-"] *),
+html.light [class*="text-[#e2e8f0]"]:not([id^="tarot-card-"] *),
+html.light [class*="text-slate-200"],
+html.light [class*="text-slate-300"] {
+  color: #242c40 !important;
+}
+
+html.light [class*="text-[#94a3b8]"]:not([id^="tarot-card-"] *),
+html.light [class*="text-[#64748b]"]:not([id^="tarot-card-"] *),
+html.light [class*="text-[#475569]"]:not([id^="tarot-card-"] *),
+html.light [class*="text-slate-400"],
+html.light [class*="text-slate-500"] {
+  color: #4b5770 !important;
+}
+
+/* Burnished Royal Amber/Gold text in Light Mode (replaces unreadable light yellow) */
+html.light [class*="text-[#ffd700]"]:not([id^="tarot-card-"] *):not([class*="from-[#c59b27]"] *):not([class*="from-[#b38827]"] *),
+html.light [class*="text-[#fef08a]"]:not([id^="tarot-card-"] *):not([class*="from-[#c59b27]"] *):not([class*="from-[#b38827]"] *),
+html.light [class*="text-[#eab308]"]:not([id^="tarot-card-"] *):not([class*="from-[#c59b27]"] *):not([class*="from-[#b38827]"] *),
+html.light [class*="text-[#d4af37]"]:not([id^="tarot-card-"] *):not([class*="from-[#c59b27]"] *):not([class*="from-[#b38827]"] *),
+html.light [class*="text-amber-200"],
+html.light [class*="text-amber-300"],
+html.light [class*="text-yellow-200"],
+html.light [class*="text-yellow-300"] {
+  color: #854d0e !important;
+}
+
+/* Deep Royal Indigo / Purple in Light Mode */
+html.light [class*="text-[#a5b4fc]"]:not([id^="tarot-card-"] *),
+html.light [class*="text-[#c084fc]"]:not([id^="tarot-card-"] *),
+html.light [class*="text-[#818cf8]"]:not([id^="tarot-card-"] *),
+html.light [class*="text-[#e9d5ff]"]:not([id^="tarot-card-"] *) {
+  color: #3730a3 !important;
+}
+
+/* Light pastel colored texts mapped to sharp jewel tones */
+html.light [class*="text-sky-400"]:not([id^="tarot-card-"] *),
+html.light [class*="text-sky-300"]:not([id^="tarot-card-"] *) {
+  color: #0369a1 !important;
+}
+html.light [class*="text-cyan-300"]:not([id^="tarot-card-"] *),
+html.light [class*="text-cyan-400"]:not([id^="tarot-card-"] *) {
+  color: #0e7490 !important;
+}
+html.light [class*="text-purple-400"]:not([id^="tarot-card-"] *),
+html.light [class*="text-purple-300"]:not([id^="tarot-card-"] *) {
+  color: #6b21a8 !important;
+}
+html.light [class*="text-emerald-300"]:not([id^="tarot-card-"] *),
+html.light [class*="text-emerald-200"]:not([id^="tarot-card-"] *) {
+  color: #065f46 !important;
+}
+
+html.light .gold-text-gradient {
+  background: linear-gradient(135deg, #78350f 0%, #b45309 45%, #92400e 80%, #78350f 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+html.light .cosmic-glow {
+  box-shadow: 0 10px 30px -5px rgba(180, 130, 20, 0.16) !important;
+}
+
+/* ==========================================================================
+   BADGES WITH TAILWIND COLOR SHADES IN LIGHT MODE
+   Transforms dark background badges into soft tinted pills with sharp text
+   ========================================================================== */
+html.light [class*="bg-emerald-950"],
+html.light [class*="bg-emerald-900"] {
+  background-color: #ecfdf5 !important;
+  border-color: #6ee7b7 !important;
+  color: #065f46 !important;
+}
+html.light [class*="bg-emerald-950"] *,
+html.light [class*="bg-emerald-900"] * {
+  color: #065f46 !important;
+}
+
+html.light [class*="bg-amber-950"],
+html.light [class*="bg-amber-900"] {
+  background-color: #fffbeb !important;
+  border-color: #fcd34d !important;
+  color: #92400e !important;
+}
+html.light [class*="bg-amber-950"] *,
+html.light [class*="bg-amber-900"] * {
+  color: #92400e !important;
+}
+
+html.light [class*="bg-cyan-950"] {
+  background-color: #ecfeff !important;
+  border-color: #67e8f9 !important;
+  color: #0e7490 !important;
+}
+html.light [class*="bg-cyan-950"] * {
+  color: #0e7490 !important;
+}
+
+html.light [class*="bg-sky-950"] {
+  background-color: #f0f9ff !important;
+  border-color: #7dd3fc !important;
+  color: #0369a1 !important;
+}
+html.light [class*="bg-sky-950"] * {
+  color: #0369a1 !important;
+}
+
+/* Live indicators retain vibrant color */
+html.light .bg-emerald-400,
+html.light .bg-emerald-500 {
+  background-color: #059669 !important;
+}
+
+/* ==========================================================================
+   AI & USER CHAT BUBBLES IN LIGHT MODE
+   Distinct amber-gold user tint vs crisp white assistant cards
+   ========================================================================== */
+html.light [class*="bg-gradient-to-br from-[#1e2552]"] {
+  background-image: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%) !important;
+  background-color: #fef3c7 !important;
+  border-color: #f59e0b !important;
+  color: #451a03 !important;
+}
+html.light [class*="bg-gradient-to-br from-[#1e2552]"] * {
+  color: #451a03 !important;
+}
+
+html.light [class*="bg-[#0f132e]"] {
+  background-color: #ffffff !important;
+  border-color: #ded3bf !important;
+  color: #0e1322 !important;
+}
+html.light [class*="bg-[#0f132e]"] * {
+  color: #0e1322 !important;
+}
+
+/* ==========================================================================
+   CALENDAR & TIME SLOTS IN LIGHT MODE
+   ========================================================================== */
+html.light [class*="text-[#333d6b]"] {
+  color: #94a3b8 !important;
+}
+html.light [class*="bg-[#181f4a]"] {
+  background-color: #fef3c7 !important;
+  border-color: #d97706 !important;
+  color: #78350f !important;
+}
+html.light [class*="bg-[#181f4a]"] * {
+  color: #78350f !important;
+}
+html.light [class*="bg-[#090c1a]"] {
+  background-color: #ffffff !important;
+  border-color: #ded3bf !important;
+  color: #0e1322 !important;
+}
+html.light [class*="bg-[#090c1a]"]:hover {
+  background-color: #f5eee3 !important;
+  border-color: #b45309 !important;
+  color: #0e1322 !important;
+}
+
+/* ==========================================================================
+   WEBSITE BREADCRUMBS STYLING IN LIGHT MODE
+   ========================================================================== */
+html.light .breadcrumb-home-link {
+  color: #334155 !important;
+  background-color: #ffffff !important;
+  border: 1px solid #ded3bf !important;
+}
+html.light .breadcrumb-home-link:hover {
+  color: #92400e !important;
+  background-color: #f5eee3 !important;
+  border-color: #b45309 !important;
+}
+html.light .breadcrumb-separator {
+  color: #94a3b8 !important;
+}
+html.light .breadcrumb-current {
+  color: #78350f !important;
+  background-color: #fef3c7 !important;
+  border: 1px solid #f59e0b !important;
+}
+html.light .breadcrumb-current * {
+  color: #78350f !important;
+}
+html.light .breadcrumb-intermediate-link {
+  color: #3730a3 !important;
+}
+html.light .breadcrumb-intermediate-link:hover {
+  color: #1e1b4b !important;
+  background-color: #ede5d5 !important;
+}
+html.light .breadcrumb-category {
+  color: #4338ca !important;
+}
+html.light .breadcrumb-back-btn {
+  color: #1e293b !important;
+  background-color: #ffffff !important;
+  border-color: #ded3bf !important;
+}
+html.light .breadcrumb-back-btn:hover {
+  color: #0f172a !important;
+  background-color: #f5eee3 !important;
+  border-color: #b45309 !important;
+}
+html.light .breadcrumb-back-btn * {
+  color: #854d0e !important;
+}
+
+/* ==========================================================================
+   INPUTS, FORMS & SELECTS IN LIGHT MODE
+   ========================================================================== */
+html.light input,
+html.light select,
+html.light textarea {
+  background-color: #ffffff !important;
+  color: #0e1322 !important;
+  border-color: #d2c6b4 !important;
+}
+
+html.light input:focus,
+html.light select:focus,
+html.light textarea:focus {
+  border-color: #b45309 !important;
+  box-shadow: 0 0 0 2px rgba(180, 83, 9, 0.15) !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #5c6984 !important;
+}
+
+/* ==========================================================================
+   HEADER, NAVBAR & FOOTER IN LIGHT MODE
+   ========================================================================== */
+html.light header {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+  border-bottom-color: #ded3bf !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+html.light header .bg-gradient-to-r {
+  background-image: linear-gradient(90deg, #f5efe3 0%, #ece2d0 50%, #f5efe3 100%) !important;
+  border-bottom-color: #ded3bf !important;
+}
+
+html.light header nav button {
+  color: #333d54 !important;
+}
+
+html.light header nav button:hover {
+  background-color: #f1ebdF !important;
+  color: #0e1322 !important;
+}
+
+html.light footer {
+  background-color: #efe8dc !important;
+  border-top-color: #ded3bf !important;
+  color: #4b5770 !important;
+}
+
+html.light footer [class*="border-"] {
+  border-color: #ded3bf !important;
+}
+
+/* Modals & Backdrop Blur in Light Mode */
+html.light .fixed.inset-0.bg-black\/80,
+html.light .fixed.inset-0.bg-black\/70,
+html.light .fixed.inset-0.bg-black\/60 {
+  background-color: rgba(15, 20, 35, 0.65) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+/* ==========================================================================
+   TAROT CARD ARTIFACT STYLING (Preserved in both Dark & Light modes)
+   ========================================================================== */
+html.light [id^="tarot-card-"] .backface-hidden,
+html.light [id^="tarot-card-"] [class*="bg-gradient-to-b from-[#14182e]"],
+html.light [id^="tarot-card-"] [class*="bg-gradient-to-b from-[#161a33]"] {
+  background-image: linear-gradient(to bottom, #161a33, #0f1226, #0a0c1a) !important;
+  background-color: #0f1226 !important;
+  border-color: #d4af37 !important;
+}
+
+html.light [id^="tarot-card-"] h4 {
+  color: #fff5d0 !important;
+}
+
+html.light [id^="tarot-card-"] [class*="text-[#fef08a]"] {
+  color: #fef08a !important;
+}
+
+html.light [id^="tarot-card-"] [class*="text-[#fff5d0]"] {
+  color: #fff5d0 !important;
+}
+
+html.light [id^="tarot-card-"] [class*="text-[#cbd5e1]"] {
+  color: #cbd5e1 !important;
+}
+
+html.light [id^="tarot-card-"] [class*="text-[#e2e4f0]"] {
+  color: #e2e4f0 !important;
+}
+
+html.light [id^="tarot-card-"] [class*="text-[#94a3b8]"] {
+  color: #94a3b8 !important;
+}
+
+html.light [id^="tarot-card-"] [class*="text-[#ffd700]"] {
+  color: #ffd700 !important;
+}
+
+/* Custom Scrollbar in Light Mode */
+html.light ::-webkit-scrollbar-track {
+  background: #f4eee3;
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: #d5cbba;
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #b8ab96;
+}
+
+/* ==========================================================================
+   INDIVIDUAL ZODIAC HOROSCOPE COLOR PRESERVATION (Both Themes)
+   ========================================================================== */
+html.light .zodiac-btn-active {
+  box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.25) !important;
+}
+html.light .zodiac-btn-active * {
+  color: inherit !important;
+}
+html.light .zodiac-symbol-badge {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
