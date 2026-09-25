@@ -98,11 +98,13 @@ export const Navbar: React.FC<NavbarProps> = ({
           }}
           className="flex items-center space-x-2.5 group cursor-pointer shrink-0"
         >
-          <div className="relative w-10 h-10 rounded-full bg-gradient-to-tr from-[#c59b27] via-[#eab308] to-[#fef08a] p-0.5 shadow-md shadow-[#d4af37]/20 group-hover:scale-105 transition-transform">
-            <div className="w-full h-full rounded-full bg-[#0b0c16] flex items-center justify-center">
-              <Moon className="w-5 h-5 text-[#ffd700] fill-[#ffd700]/20 group-hover:rotate-12 transition-transform" />
-            </div>
-            <Sparkles className="absolute -top-1 -right-1 w-3.5 h-3.5 text-[#fef08a] animate-spin" style={{ animationDuration: '6s' }} />
+          <div className="relative w-11 h-11 rounded-full bg-gradient-to-tr from-[#c59b27] via-[#eab308] to-[#fef08a] p-[1.5px] shadow-md shadow-[#d4af37]/30 group-hover:scale-105 transition-transform overflow-hidden flex items-center justify-center">
+            <img
+              src="/logo.png"
+              alt="Astral Tarot 24 Logo"
+              className="w-full h-full object-cover rounded-full"
+              referrerPolicy="no-referrer"
+            />
           </div>
           <div>
             <span className="font-serif font-bold text-lg sm:text-xl tracking-wider text-white flex items-center gap-1.5">

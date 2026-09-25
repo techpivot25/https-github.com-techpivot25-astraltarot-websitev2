@@ -127,9 +127,14 @@ export const Hero: React.FC<HeroProps> = ({
                 Live Portal
               </div>
 
-              {/* Decorative Compass Icon */}
-              <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-[#2a1b4e] to-[#121528] border border-[#ffd700]/40 flex items-center justify-center mb-4 shadow-inner">
-                <Sparkles className="w-8 h-8 text-[#ffd700] animate-pulse" />
+              {/* Decorative Brand Emblem */}
+              <div className="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-[#d4af37] via-[#ffd700] to-[#fef08a] flex items-center justify-center mb-4 shadow-lg shadow-[#d4af37]/30 overflow-hidden">
+                <img
+                  src="/logo.png"
+                  alt="Astral Tarot 24"
+                  className="w-full h-full object-cover rounded-full"
+                  referrerPolicy="no-referrer"
+                />
               </div>
 
               <h3 className="font-serif font-bold text-xl sm:text-2xl text-white mb-2">
@@ -153,8 +158,13 @@ export const Hero: React.FC<HeroProps> = ({
                 <div className="absolute top-1 left-1 w-full h-full rounded-2xl bg-[#0e1124] border border-[#3e4882]" />
                 <div className="relative w-full h-full rounded-2xl bg-gradient-to-b from-[#151a36] via-[#0e1126] to-[#080a18] border-2 border-[#ffd700] flex flex-col items-center justify-between p-4 shadow-2xl group-hover:border-[#fff5d0]">
                   <span className="text-[10px] text-[#ffd700] uppercase tracking-widest font-serif">Astral Tarot 24</span>
-                  <div className="w-16 h-16 rounded-full border border-dashed border-[#ffd700]/60 flex items-center justify-center">
-                    <Sparkles className="w-8 h-8 text-[#fef08a]" />
+                  <div className="w-20 h-20 rounded-full p-1 bg-gradient-to-tr from-[#d4af37] via-[#ffd700] to-[#fef08a] shadow-lg shadow-[#d4af37]/40 flex items-center justify-center overflow-hidden">
+                    <img
+                      src="/logo.png"
+                      alt="Astral Tarot 24 Deck Emblem"
+                      className="w-full h-full object-cover rounded-full"
+                      referrerPolicy="no-referrer"
+                    />
                   </div>
                   <span className="text-[10px] text-[#a5b4fc] tracking-wider uppercase font-sans animate-pulse">
                     ✨ Click to Draw ✨

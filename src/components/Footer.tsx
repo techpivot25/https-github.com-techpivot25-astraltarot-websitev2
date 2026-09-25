@@ -40,10 +40,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               onClick={(e) => handleLinkClick(e, 'home')}
               className="flex items-center space-x-2.5 cursor-pointer group"
             >
-              <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-[#c59b27] via-[#eab308] to-[#fef08a] p-0.5 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
-                <div className="w-full h-full rounded-full bg-[#0b0c16] flex items-center justify-center">
-                  <Moon className="w-4 h-4 text-[#ffd700]" />
-                </div>
+              <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#c59b27] via-[#eab308] to-[#fef08a] p-[1.5px] flex items-center justify-center shadow-md group-hover:scale-105 transition-transform overflow-hidden shrink-0">
+                <img
+                  src="/logo.png"
+                  alt="Astral Tarot 24 Logo"
+                  className="w-full h-full object-cover rounded-full"
+                  referrerPolicy="no-referrer"
+                />
               </div>
               <span className="font-serif font-extrabold text-xl text-white tracking-wider">
                 Astral Tarot <span className="text-[#ffd700]">24</span>
@@ -58,7 +61,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <p>🌐 Official Portal: <strong className="text-white">www.astraltarot24.in</strong></p>
               <p>📧 Bookings & Inquiries: <a href="mailto:appointment@astraltarot24.in" className="text-[#fef08a] hover:underline">appointment@astraltarot24.in</a></p>
               <p>📞 Helpline / WhatsApp: <a href="tel:+918586970405" className="text-white hover:text-[#ffd700] font-medium">+91 8586970405</a></p>
-              <p>📍 Headquarters: New Delhi, India • Serving Global Seekers 24/7</p>
+              <p>📍 Headquarters: Chandigarh, India</p>
             </div>
           </div>
 
